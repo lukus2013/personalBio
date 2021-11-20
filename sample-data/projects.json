@@ -1,0 +1,35 @@
+{
+    "Project1": {
+        "name": "Sorting Hat",
+        "ProjectId": "Proj01HWHat",
+        "Description": "This is a simple one page app that allows you to sort yourself, and whoever into the houses of Hogwarts. This was one of my early projects at NSS, I like to look at this one as a example of where I started. Vanilla Javascript was used in the making of this app",
+        "ProjectURL": "https://clever-cori-0cd322.netlify.app/",
+        "GithubURL": "https://github.com/lukus2013/sorting-hat",
+        "GitProjPage": "https://github.com/lukus2013/sorting-hat/projects/1"
+    },
+    "Project2": {
+        "name": "FakeGithub group project",
+        "ProjectId": "Proj02FGgroup",
+        "Description": "This was my first group project at NSS. The big learning curve here was with Github, learning to merge, push, and pull. I was personally responsible for the packages page and the profile on the left side of the screen.",
+        "ProjectURL": "https://purple-parrots-github.netlify.app/index.html",
+        "GithubURL": "https://github.com/nss-evening-cohort-16/gitsub-purple-parrots",
+        "GitProjPage": "https://github.com/nss-evening-cohort-16/gitsub-purple-parrots/projects/1"
+
+    },
+    "Project3": {
+        "name": "Joke Generator",
+        "ProjectId": "Proj03JGme",
+        "Description": "This was the last vanilla javascript project we, my class, did before moving onto React. The class was given 2 hours to complete this project. The Api was already created, all we had to do was change the rules to what jokes were to be used. Styling wasn't the main focus, but burning through our knowledge quickly to create MVP. I didnt get to styling, it was a stretch goal, but I did complete the project within the time limit. No project page was created for this app.",
+        "ProjectURL": "https://silly-khorana-2b0750.netlify.app/",
+        "GithubURL": "https://github.com/lukus2013/webpack-joke-generator",
+        "GitProjPage": ""
+    },
+    "Project4": {
+        "name": "",
+        "ProjectId": "",
+        "Description": "",
+        "ProjectURL": "",
+        "GithubURL": "",
+        "GitProjPage": ""
+    }
+}
