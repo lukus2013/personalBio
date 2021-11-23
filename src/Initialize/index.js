@@ -1,38 +1,37 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import firebase from 'firebase';
-import 'firebase/auth';
-import MyRoutes from '../routes';
-import SignIn from '../views/SignIn';
 import Navigation from '../Components/Navigation';
+import MyRoutes from '../routes';
+import firebaseConfig from '../api/apiKeys';
 
 function Initialize() {
   const [user, setUser] = useState(null);
-
+  const [admin, setAdmin] = useState(null);
   useEffect(() => {
     firebase.auth().onAuthStateChanged((authed) => {
+      console.warn(authed.uid);
       if (authed) {
         const userInfo = {
-          profileImage: authed.photoURL,
           uid: authed.uid,
-          user: authed.email.split('@')[0],
+          name: authed.displayName,
         };
         setUser(userInfo);
+        if (userInfo.uid === firebaseConfig.adminUid) {
+          console.warn('Here we go');
+          setAdmin(userInfo);
+        }
       } else if (user || user === null) {
-        setUser(false);
+        setUser(null);
+        setAdmin(null);
       }
     });
   }, []);
-
   return (
     <div className="App">
-      {user ? (
-        <>
-          <Navigation />
-          <MyRoutes userId={user.uid} />
-        </>
-      ) : (
-        <SignIn user={user} />
-      )}
+      <>
+        <Navigation />
+        <MyRoutes admin={admin} />
+      </>
     </div>
   );
 }

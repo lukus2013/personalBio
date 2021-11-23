@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { signOutUser } from '../api/auth';
+import { signInUser, signOutUser } from '../api/auth';
 
 export default function Navigation() {
   return (
@@ -50,6 +50,15 @@ export default function Navigation() {
                   className="nav-link active btn btn-link"
                 >
                   Logout
+                </button>
+              </li>
+              <li className="nav-item">
+                <button
+                  onClick={signInUser}
+                  type="button"
+                  className="nav-link active btn btn-link"
+                >
+                  Login
                 </button>
               </li>
             </ul>
