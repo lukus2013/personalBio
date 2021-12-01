@@ -1,9 +1,8 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import { signInUser, signOutUser } from '../api/auth';
+import { signOutUser } from '../api/auth';
 
-export default function Navigation({ user }) {
+export default function AdminNav() {
   return (
     <div>
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -34,27 +33,24 @@ export default function Navigation({ user }) {
                   Projects
                 </Link>
               </li>
-              {user ? (
-                <li className="nav-item">
-                  <button
-                    onClick={signOutUser}
-                    type="button"
-                    className="nav-link active btn btn-link"
-                  >
-                    Logout
-                  </button>
-                </li>
-              ) : (
-                <li className="nav-item">
-                  <button
-                    onClick={signInUser}
-                    type="button"
-                    className="nav-link active btn btn-link"
-                  >
-                    Login
-                  </button>
-                </li>
-              )}
+              <li className="nav-item">
+                <Link
+                  className="nav-link active"
+                  aria-current="page"
+                  to="/projectcrud"
+                >
+                  Project Crud
+                </Link>
+              </li>
+              <li className="nav-item">
+                <button
+                  onClick={signOutUser}
+                  type="button"
+                  className="nav-link active btn btn-link"
+                >
+                  Logout
+                </button>
+              </li>
             </ul>
           </div>
         </div>
@@ -62,11 +58,3 @@ export default function Navigation({ user }) {
     </div>
   );
 }
-
-Navigation.propTypes = {
-  user: PropTypes.shape(PropTypes.obj),
-};
-
-Navigation.defaultProps = {
-  user: null,
-};

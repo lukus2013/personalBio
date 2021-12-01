@@ -6,14 +6,20 @@ export default function Projects() {
   const [projects, setProjects] = useState([]);
 
   useEffect(() => {
-    getProjects().then(setProjects);
+    let isMounted = true;
+    getProjects().then((projObj) => {
+      if (isMounted) setProjects(projObj);
+    });
+    return () => {
+      isMounted = false;
+    };
   }, []);
 
   return (
     <div className="proj-container">
       {projects.map((project) => (
         <ProjCards
-          key={project.ProjectId}
+          key={project.projectId}
           card={project}
           setProjects={setProjects}
         />

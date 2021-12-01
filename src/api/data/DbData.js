@@ -3,6 +3,13 @@ import firebaseConfig from '../apiKeys';
 
 const dbURL = firebaseConfig.databaseURL;
 
+const getTech = () => new Promise((resolve, reject) => {
+  axios
+    .get(`${dbURL}/tech.json`)
+    .then((response) => resolve(Object.values(response.data)))
+    .catch(reject);
+});
+
 const getProjects = () => new Promise((resolve, reject) => {
   axios
     .get(`${dbURL}/projects.json`)
@@ -10,5 +17,33 @@ const getProjects = () => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
-// eslint-disable-next-line import/prefer-default-export
-export { getProjects };
+const createProject = (object) => new Promise((resolve, reject) => {
+  axios
+    .post(`${dbURL}/projects.json`, object)
+    .then((response) => {
+      axios
+        .patch(`${dbURL}/projects/${response.data.name}.json`, {
+          ProjectId: response.data.name,
+        })
+        .then(() => getProjects().then(resolve));
+    })
+    .catch(reject);
+});
+
+const updateProject = (projObj) => new Promise((resolve, reject) => {
+  axios
+    .patch(`${dbURL}/projects/${projObj.ProjectId}.json`, projObj)
+    .then(() => getProjects(projObj).then(resolve))
+    .catch(reject);
+});
+
+const deleteProject = (projObj) => new Promise((resolve, reject) => {
+  axios
+    .delete(`${dbURL}/projects/${projObj.ProjectId}.json`)
+    .then(() => getProjects(projObj).then(resolve))
+    .catch(reject);
+});
+
+export {
+  getProjects, createProject, updateProject, deleteProject, getTech,
+};

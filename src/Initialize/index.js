@@ -3,6 +3,8 @@ import firebase from 'firebase';
 import Navigation from '../Components/Navigation';
 import MyRoutes from '../routes';
 import firebaseConfig from '../api/apiKeys';
+import AdminNav from '../Components/AdminNav';
+import AdminRoutes from '../routes/AdminRoutes';
 
 function Initialize() {
   const [user, setUser] = useState(null);
@@ -29,8 +31,17 @@ function Initialize() {
   return (
     <div className="App">
       <>
-        <Navigation />
-        <MyRoutes admin={admin} />
+        {admin ? (
+          <>
+            <AdminNav admin={admin} />
+            <AdminRoutes admin={admin} />
+          </>
+        ) : (
+          <>
+            <Navigation user={user} />
+            <MyRoutes />
+          </>
+        )}
       </>
     </div>
   );

@@ -3,12 +3,12 @@ import PropTypes from 'prop-types';
 
 export default function ProjCards({ card }) {
   return (
-    <div className="projCard" style={{ width: '18rem', margin: '3px' }}>
+    <div className="projCard">
       <div className="projCard-body">
-        <h5 className="proj-card-name">{card.ProjectName}</h5>
-        <p className="proj-card-description">{card.ProjectDescription}</p>
+        <h5 className="proj-card-name">{card.projectName}</h5>
+        <p className="proj-card-description">{card.projectDescription}</p>
         <a
-          href={card.ProjectURL}
+          href={card.projectURL}
           className="card-link"
           target="_blank"
           rel="noreferrer"
@@ -16,7 +16,7 @@ export default function ProjCards({ card }) {
           Project Url
         </a>
         <a
-          href={card.GithubURL}
+          href={card.githubURL}
           className="card-link"
           target="_blank"
           rel="noreferrer"
@@ -24,7 +24,7 @@ export default function ProjCards({ card }) {
           Github Repo Url
         </a>
         <a
-          href={card.GitProjPage}
+          href={card.gitProjPage}
           className="card-link"
           target="_blank"
           rel="noreferrer"
