@@ -1,0 +1,18 @@
+{
+    "tech1": {
+        "techId": "JS",
+        "imageUrl": "https://aomioxwmyqjzkimvzuqb.supabase.in/storage/v1/object/public/bio-pics/JS.png"
+    },
+    "tech2": {
+        "techId": "html",
+        "imageUrl": "https://aomioxwmyqjzkimvzuqb.supabase.in/storage/v1/object/public/bio-pics/html.png"
+    },
+    "tech3": {
+        "techId": "CSS",
+        "imageUrl": "https://aomioxwmyqjzkimvzuqb.supabase.in/storage/v1/object/public/bio-pics/css.png"
+    },
+    "tech4": {
+        "techId": "react",
+        "imageUrl": "https://aomioxwmyqjzkimvzuqb.supabase.in/storage/v1/object/public/bio-pics/react.png"
+    }
+}

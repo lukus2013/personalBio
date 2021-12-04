@@ -4,3 +4,27 @@
 body {
   background-color: $favColor !important;
 }
+
+.homepage {
+  display: flex;
+  flex-wrap: wrap;
+  .home-card {
+      display: flex;
+      justify-content: 'center';
+      align-items: 'center';
+      width: 35rem;
+      height: 20rem;
+      padding: 5rem;
+  }
+}
+
+.proj-container {
+  display: table-row;
+    justify-content: 'center';
+    align-items: 'center';
+    width: 15rem;
+    height: 10rem;
+    padding: 5rem;
+    padding-left: 10rem;
+}
+
