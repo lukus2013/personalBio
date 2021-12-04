@@ -5,16 +5,20 @@ body {
   background-color: $favColor !important;
 }
 
-.home-card {
-    display: flex;
-    justify-content: 'center';
-    align-items: 'center';
-    width: 35rem;
-    height: 20rem;
-    padding: 5rem;
+.homepage {
+  display: flex;
+  flex-wrap: wrap;
+  .home-card {
+      display: flex;
+      justify-content: 'center';
+      align-items: 'center';
+      width: 35rem;
+      height: 20rem;
+      padding: 5rem;
+  }
 }
 
-.projCard {
+.proj-container {
   display: table-row;
     justify-content: 'center';
     align-items: 'center';
@@ -23,3 +27,4 @@ body {
     padding: 5rem;
     padding-left: 10rem;
 }
+

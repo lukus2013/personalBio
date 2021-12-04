@@ -1,18 +1,20 @@
+/* eslint-disable object-curly-newline */
 import React from 'react';
 import PropTypes from 'prop-types';
-import { deleteProject, updateProject } from '../api/data/DbData';
+import { deleteProject, getProjectById } from '../api/data/DbData';
 
-export default function ProjCrudCard({ card, setCards }) {
+export default function ProjCrudCard({ card, setCards, setEditItem }) {
   const handleClick = (method) => {
     if (method === 'delete') {
       deleteProject(card).then(setCards);
     } else {
-      updateProject({ ...card }).then(setCards);
+      console.warn(setEditItem);
+      getProjectById(card.projectId).then(setEditItem);
     }
   };
 
   return (
-    <div className="projCard" style={{ width: '18rem', margin: '3px' }}>
+    <div className="projCard">
       <div className="projCard-body">
         <h5 className="proj-card-name">{card.projectName}</h5>
         <p className="proj-card-description">{card.projectDescription}</p>
@@ -47,4 +49,9 @@ export default function ProjCrudCard({ card, setCards }) {
 ProjCrudCard.propTypes = {
   card: PropTypes.shape(PropTypes.obj).isRequired,
   setCards: PropTypes.func.isRequired,
+  setEditItem: PropTypes.func,
+};
+
+ProjCrudCard.defaultProps = {
+  setEditItem: null,
 };

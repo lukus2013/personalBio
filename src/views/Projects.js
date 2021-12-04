@@ -16,14 +16,16 @@ export default function Projects() {
   }, []);
 
   return (
-    <div className="proj-container">
-      {projects.map((project) => (
-        <ProjCards
-          key={project.projectId}
-          card={project}
-          setProjects={setProjects}
-        />
-      ))}
+    <div className="projects-page">
+      <div className="proj-container">
+        {projects.map((project) => (
+          <ProjCards
+            key={project.projectId}
+            card={project}
+            setProjects={setProjects}
+          />
+        ))}
+      </div>
     </div>
   );
 }

@@ -14,14 +14,14 @@ export default function ProjectCrud() {
     });
     return () => {
       isMounted = false;
-    }; // cleanup function
+    };
   }, []);
 
   return (
     <>
       <h1 className="text-center">CRUD your projects</h1>
       <ProjectForm
-        key={card.ProjectId}
+        key={card.projectId}
         obj={editItem}
         setCards={setCards}
         setEditItem={setEditItem}
@@ -29,9 +29,11 @@ export default function ProjectCrud() {
       <div className=" d-flex flex-wrap proj-container">
         {card.map((cards) => (
           <ProjCrudCard
-            key={cards.ProjectId}
+            key={cards.projectId}
             card={cards}
-            setProjects={setCards}
+            setCards={setCards}
+            obj={editItem}
+            setEditItem={setEditItem}
           />
         ))}
       </div>

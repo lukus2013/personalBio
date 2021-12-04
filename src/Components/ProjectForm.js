@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { createProject, updateProject } from '../api/data/DbData';
+import { createProject, getProjects, updateProject } from '../api/data/DbData';
 
 const initialState = {
-  ProjectName: '',
-  ProjectId: '',
-  ProjectDescription: '',
-  ProjectURL: '',
-  GithubURL: '',
-  GitProjPage: '',
+  projectName: '',
+  projectId: '',
+  projectDescription: '',
+  projectURL: '',
+  githubURL: '',
+  gitProjPage: '',
 };
 
 export default function ProjectForm({ obj, setCards, setEditItem }) {
@@ -22,6 +22,7 @@ export default function ProjectForm({ obj, setCards, setEditItem }) {
         projectURL: obj.projectURL,
         githubURL: obj.githubURL,
         gitProjPage: obj.gitProjPage,
+        projectId: obj.projectId,
       });
     }
   }, [obj]);
@@ -42,13 +43,14 @@ export default function ProjectForm({ obj, setCards, setEditItem }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (obj.projectId) {
+      console.warn(formInput.projectId);
       updateProject(formInput).then(() => {
-        setCards();
+        getProjects().then(setCards);
         resetForm();
       });
     } else {
       createProject({ ...formInput }).then(() => {
-        setCards();
+        getProjects().then(setCards);
         resetForm();
       });
     }
